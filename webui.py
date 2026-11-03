@@ -26770,6 +26770,7 @@ def _no_graphical_env() -> bool:
     容器监听地址门禁在 CI 上假红）。
     """
     return (os.name == "posix"
+            and sys.platform != "darwin"
             and not os.environ.get("DISPLAY")
             and not os.environ.get("WAYLAND_DISPLAY"))
 
